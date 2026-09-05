@@ -1,5 +1,6 @@
 package com.example.springdemo;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     @GetMapping("/")
-    public String greet(){
-        return "Test message";
+    public String greet(HttpServletRequest request){
+        return "Test message, your session id: " + request.getSession().getId();
     }
 }
